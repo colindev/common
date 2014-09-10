@@ -2,8 +2,12 @@
 
 namespace Rde;
 
-function array_get(array $arr, $key, $default = null)
+function array_get($arr, $key, $default = null)
 {
+    if ( ! is_array($arr) && ! is_a($arr, 'ArrayAccess')) {
+        throw new \InvalidArgumentException('參數1必須為陣列或ArrayAccess實體');
+    }
+
     if (array_key_exists($key, $arr)) {
         return $arr[$key];
     }
