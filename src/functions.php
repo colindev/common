@@ -14,3 +14,10 @@ function array_get(array $arr, $key, $default = null)
 
     return $default;
 }
+
+// debug
+function dd()
+{
+    call_user_func_array('var_dump', func_get_args());
+    die;
+}
