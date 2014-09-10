@@ -1,0 +1,17 @@
+{
+    "name": "rde/functions",
+    "description": "extension functions",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Colin",
+            "email": "colin1124x@gmail.com"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+        "files": ["src/functions.php"]
+    }
+}
