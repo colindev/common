@@ -40,6 +40,23 @@ function array_each(callable $callback)
     }
 }
 
+function object_get($obj, $key, $default = null)
+{
+    if ( ! \is_object($obj)) {
+        throw new \InvalidArgumentException('參數1必須為物件');
+    }
+
+    if (isset($obj->{$key})) {
+        return $obj->{$key};
+    }
+
+    if ($default && is_callable($default)) {
+        return $default();
+    }
+
+    return $default;
+}
+
 // debug
 function dd()
 {

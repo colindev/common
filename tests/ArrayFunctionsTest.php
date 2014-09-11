@@ -19,7 +19,7 @@ class ArrayFunctionTest extends PHPUnit_Framework_TestCase
         $this->assertFalse(Rde\is_array(null));
     }
 
-    public function testArrayGet()
+    public function testGet()
     {
         $arr = array('a' => 1);
 
@@ -32,12 +32,12 @@ class ArrayFunctionTest extends PHPUnit_Framework_TestCase
     /**
      * @expectedException InvalidArgumentException
      */
-    public function testArrayGetException()
+    public function testGetException()
     {
         \Rde\array_get(null, 'a');
     }
 
-    public function testArrayEach()
+    public function testEach()
     {
         $tester = $this;
         $tmp1 = array('a' => 9, 'b' => 5);
