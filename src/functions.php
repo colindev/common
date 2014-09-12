@@ -57,6 +57,11 @@ function object_get($obj, $key, $default = null)
     return $default;
 }
 
+function with($any)
+{
+    return $any;
+}
+
 // debug
 function dd()
 {
