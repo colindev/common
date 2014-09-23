@@ -26,7 +26,7 @@ function array_get($arr, $key, $default = null)
     return $default;
 }
 
-function array_each(callable $callback)
+function array_each($callback)
 {
     foreach (array_slice(func_get_args(), 1) as $i => $arr) {
         if ( ! is_array($arr)) {
