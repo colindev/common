@@ -32,12 +32,8 @@ class PhpTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             array("a'", "b'", 'x' => "c'"),
-            $arr_reflect = &array_map(function($item){return $item."'";}, $arr)
+            array_map(function($item){return $item."'";}, $arr)
         );
-
-        $arr_reflect[0] = 'aa';
-
-        $this->assertEquals(array('a', 'b', 'x' => 'c'), $arr);
     }
 
     public function testArrayWalk()
