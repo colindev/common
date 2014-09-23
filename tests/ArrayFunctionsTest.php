@@ -14,7 +14,7 @@ class ArrayFunctionTest extends PHPUnit_Framework_TestCase
 {
     public function testIsArray()
     {
-        $this->assertTrue(Rde\is_array([]));
+        $this->assertTrue(Rde\is_array(array()));
         $this->assertTrue(Rde\is_array(new FakeArray()));
         $this->assertFalse(Rde\is_array(null));
     }
