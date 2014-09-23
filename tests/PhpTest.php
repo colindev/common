@@ -25,4 +25,53 @@ class PhpTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(E_NOTICE, $tmp);
     }
+
+    public function testArrayMap()
+    {
+        $arr = array('a', 'b', 'x' => 'c');
+
+        $this->assertEquals(
+            array("a'", "b'", 'x' => "c'"),
+            $arr_reflect = &array_map(function($item){return $item."'";}, $arr)
+        );
+
+        $arr_reflect[0] = 'aa';
+
+        $this->assertEquals(array('a', 'b', 'x' => 'c'), $arr);
+    }
+
+    public function testArrayWalk()
+    {
+        $arr = array('a', 'b', 'x' => 'c');
+
+        $this->assertTrue(array_walk($arr, function(&$item, $key){
+                    $item = $item."'";
+                }));
+
+        $this->assertEquals(
+            array("a'", "b'", 'x' => "c'"),
+            $arr
+        );
+
+        $this->assertTrue(array_walk($arr, function(&$item, $key){
+                    $item = $item."'";
+                    // 無法中斷
+                    return false;
+                }));
+
+        $this->assertEquals(
+            array("a''", "b''", 'x' => "c''"),
+            $arr
+        );
+
+        $this->assertTrue(array_walk($arr, function(&$item, &$key){
+                    // key 無法參照
+                    $key = "k:{$key}";
+                }));
+
+        $this->assertEquals(
+            array("a''", "b''", 'x' => "c''"),
+            $arr
+        );
+    }
 }
