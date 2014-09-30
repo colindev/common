@@ -40,6 +40,24 @@ function array_each($callback)
     }
 }
 
+function array_merge_callback($driver, array $base)
+{
+    $collection = $base;
+    $appends = array_slice(func_get_args(), 2);
+
+    foreach ($appends as $append) {
+        foreach ($append as $k => $v) {
+            $driver(
+                $v,
+                $k,
+                $collection,
+                $driver);
+        }
+    }
+
+    return $collection;
+}
+
 function object_get($obj, $key, $default = null)
 {
     if ( ! \is_object($obj)) {

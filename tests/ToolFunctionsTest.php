@@ -3,7 +3,7 @@
 /**
  * @group tool
  */
-class ToolFunctionTest extends PHPUnit_Framework_TestCase
+class ToolFunctionsTest extends PHPUnit_Framework_TestCase
 {
     public function testValue()
     {

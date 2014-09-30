@@ -3,7 +3,7 @@
 /**
  * @group object
  */
-class ObjectFunctionTest extends PHPUnit_Framework_TestCase
+class ObjectFunctionsTest extends PHPUnit_Framework_TestCase
 {
     public function testGet()
     {
