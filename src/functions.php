@@ -57,6 +57,11 @@ function object_get($obj, $key, $default = null)
     return $default;
 }
 
+function value($val)
+{
+    return is_callable($val) ? $val() : $val;
+}
+
 function with($any)
 {
     return $any;
@@ -67,9 +72,4 @@ function dd()
 {
     call_user_func_array('var_dump', func_get_args());
     die;
-}
-
-function hello($name)
-{
-    return "Hello {$name}";
 }

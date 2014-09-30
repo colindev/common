@@ -23,12 +23,4 @@ class ObjectFunctionTest extends PHPUnit_Framework_TestCase
     {
         \Rde\object_get(null, 'a');
     }
-
-    public function testHello()
-    {
-        $this->assertEquals(
-            'Hello world',
-            Rde\hello('world')
-        );
-    }
 }
