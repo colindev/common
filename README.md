@@ -21,7 +21,7 @@
     - `$merge_driver`
 
 詳情請參照
-ArrayFunctionsTest::testMergeNumericKey
-ArrayFunctionsTest::testMergeMixedKey
-ArrayFunctionsTest::testMergeMin
-ArrayFunctionsTest::testMergeRecursive
+ - ArrayFunctionsTest::testMergeNumericKey
+ - ArrayFunctionsTest::testMergeMixedKey
+ - ArrayFunctionsTest::testMergeMin
+ - ArrayFunctionsTest::testMergeRecursive
