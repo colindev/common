@@ -4,15 +4,21 @@
 
 從陣列中取值
 
-    array_get($array, $key[, $callable_or_default]);
+```
+array_get($array, $key[, $callable_or_default]);
+```
 
 陣列迭代器(支援多陣列迭代)
 
-    array_each($callback, $array_1[, $array_2[, ...]]);
+```
+array_each($callback, $array_1[, $array_2[, ...]]);
+```
 
 自訂陣列合併
 
-    array_merge_callback(callable $merge_driver, $base_array[, $array_1[, $array_2[, ...]]])
+```
+array_merge_callback(callable $merge_driver, $base_array[, $array_1[, $array_2[, ...]]])
+```
 
  - `$merge_driver` 會收到4個參數,依序是
     - `$extend_value`
