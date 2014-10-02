@@ -19,6 +19,7 @@
     - `$extend_key`
     - `&$base_array`
     - `$merge_driver`
+
 詳情請參照
 ArrayFunctionsTest::testMergeNumericKey
 ArrayFunctionsTest::testMergeMixedKey
