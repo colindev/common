@@ -16,7 +16,12 @@ class Arr implements ArrayAccess, Iterator
 
     public function filter($driver)
     {
-        $this->queues[] = $driver;
+        $this->queues[] = function($v, $k) use($driver) {
+            return array(
+                $driver($v, $k),
+                'filter',
+            );
+        };
 
         return $this;
     }
@@ -27,15 +32,24 @@ class Arr implements ArrayAccess, Iterator
             static $_cnt;
             (null === $_cnt) and $_cnt = $cnt;
 
-            return 0 < $_cnt--;
+            return array(
+                0 < $_cnt--,
+                'take',
+            );
         };
+
+        return $this;
     }
 
     public function each($callback)
     {
         foreach ($this->arr as $k => $v) {
             foreach ($this->queues as $driver) {
-                if ( ! $driver($v, $k)) {
+                $resolve = $driver($v, $k);
+                if ( ! $resolve[0]) {
+                    if ('take' === $resolve[1]) {
+                        break 2;
+                    }
                     continue 2;
                 }
             }
@@ -44,6 +58,8 @@ class Arr implements ArrayAccess, Iterator
                 break;
             }
         }
+
+        $this->queues = array();
     }
 
     public function offsetExists($key)
