@@ -1,6 +1,10 @@
 ## 工具函式庫
+
 colin1124x/common 2.0.0 2014-10
+
 PHP >= 5.5
+
+[![Build Status](https://travis-ci.org/colin1124x/common.svg)](https://travis-ci.org/colin1124x/common)
 
 ### 函式庫列表
 
