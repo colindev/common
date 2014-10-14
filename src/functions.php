@@ -2,8 +2,6 @@
 
 namespace Rde;
 
-/** @todo 雖然已經在composer指定5.4+,但暫時還是保留5.3相容寫法 */
-
 function is_array($arg)
 {
     return  \is_array($arg) || \is_a($arg, 'ArrayAccess');
@@ -37,6 +35,39 @@ function array_each($callback)
                 break;
             }
         }
+    }
+}
+
+/**
+ * @param array|\Generator $source 資料源
+ * @param callable $driver 過濾器
+ * @return \Generator
+ */
+function array_filter($source, callable $driver)
+{
+    foreach ($source as $k => $v) {
+        if ($driver($v, $k)) {
+            yield $k => $v;
+        }
+    }
+}
+
+/**
+ * @param array|\Generator $source
+ * @param int $cnt
+ * @return \Generator
+ */
+function array_take($source, $cnt)
+{
+    $cnt = (int) $cnt;
+    foreach ($source as $k => $v) {
+        if (0 >= $cnt) {
+            break;
+        }
+
+        yield $k => $v;
+
+        --$cnt;
     }
 }
 

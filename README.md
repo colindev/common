@@ -1,4 +1,6 @@
 ## 工具函式庫
+colin1124x/common 2.0.0 2014-10
+PHP >= 5.5
 
 ### 函式庫列表
 
@@ -31,3 +33,39 @@ array_merge_callback(callable $merge_driver, $base_array[, $array_1[, $array_2[,
  - ArrayFunctionsTest::testMergeMixedKey
  - ArrayFunctionsTest::testMergeMin
  - ArrayFunctionsTest::testMergeRecursive
+ 
+陣列過濾(Generator)
+```
+array_filter($source, callable $callback)
+
+// 使用範例
+
+$filter = function($val, $key){
+    return is_int($key) && 10 < $val;
+};
+
+$source = ['a' => 12, 1, 3, 5, 9, 20];
+
+foreach (Rde\array_filter($source, $filter) as $key => $val) {
+    echo "{$key} => {$val}\n";
+}
+
+// echo
+4 => 20
+```
+
+陣列擷取(Generator)
+```
+array_take($source, $cnt)
+
+// 使用範例
+
+$source = [9, 8, 7, 6, 5];
+foreach (Rde\array_take($source, 2) as $key => $val) {
+    echo "{$key} => {$val}\n"
+}
+
+// echo 
+0 => 9
+1 => 8
+```
