@@ -8,7 +8,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
     public function testFilter()
     {
         $tester = $this;
-        $source = ['a' => 1, 'b' => 2, 3, 4, 5];
+        $source = array('a' => 1, 'b' => 2, 3, 4, 5);
 
         $cnt_odd = 0;
         $filter_odd = function($v, $k) use($tester, &$cnt_odd, $source) {
@@ -19,7 +19,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
             return ($v & 1);
         };
 
-        $filted = [];
+        $filted = array();
 
         $arr = new Rde\Arr($source);
 
@@ -29,7 +29,14 @@ class ArrTest extends PHPUnit_Framework_TestCase
                 $filted[$k] = $v;
             });
 
-        $this->assertEquals(5, $cnt_odd, '檢查過濾次數');
-        $this->assertEquals(['a' => 1, 3, 5], $filted, '檢查過濾結果');
+        $this->assertEquals(
+            5,
+            $cnt_odd,
+            '檢查過濾次數');
+        
+        $this->assertEquals(
+            array('a' => 1, 3, 5),
+            $filted,
+            '檢查過濾結果');
     }
 }
