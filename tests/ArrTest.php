@@ -56,7 +56,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         });
 
         $this->assertEquals(
-            [9,8, 'a' => 7,6,5],
+            array(9,8, 'a' => 7,6,5),
             $collection,
             '檢查蒐集陣列take(5)');
 
