@@ -42,14 +42,15 @@ class ArrTest extends PHPUnit_Framework_TestCase
 
     public function testTake()
     {
+        $tester = $this;
         $source = array(9, 8, 'a' => 7, 6, 5, 4, 3, 2, 1, 0);
 
         $arr = new Rde\Arr($source);
 
         $collection = array();
-        $arr->take(5)->each(function($v, $k) use(&$collection) {
+        $arr->take(5)->each(function($v, $k) use(&$collection, $tester) {
             if (7 === $v) {
-                $this->assertEquals('a', $k, '檢查索引');
+                $tester->assertEquals('a', $k, '檢查索引');
             }
 
             $collection[$k] = $v;
