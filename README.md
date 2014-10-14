@@ -2,6 +2,8 @@
 colin1124x/common 0.0.5 2014-10
 PHP >= 5.3
 
+[![Build Status](https://travis-ci.org/colin1124x/common.svg?branch=0.0.5)](https://travis-ci.org/colin1124x/common)
+
 ### 函式庫列表
 
 從陣列中取值
