@@ -98,5 +98,22 @@ class ArrTest extends PHPUnit_Framework_TestCase
             array(9, 8, 5),
             $collection,
             '檢查結果陣列');
+
+        $collection = array();
+        $arr
+            ->take(5)
+            ->filter(function($v, $k){
+                return is_int($k) && 6 < $v;
+            })
+            ->each(function($v, $k) use(&$collection) {
+                is_int($k) and
+                $collection[] = $v or
+                $collection[$k] = $v;
+            });
+
+        $this->assertEquals(
+            array(9, 8),
+            $collection,
+            '檢查結果陣列');
     }
 }
