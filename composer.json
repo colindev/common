@@ -1,6 +1,6 @@
 {
     "name": "rde/common",
-    "description": "共用擴充函式褲或類別庫",
+    "description": "通用函式庫 & 類別庫",
     "license": "MIT",
     "authors": [
         {
