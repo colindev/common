@@ -5,6 +5,10 @@ colin1124x/common 2.0.0 2014-10
 PHP >= 5.5
 
 [![Build Status](https://travis-ci.org/colin1124x/common.svg)](https://travis-ci.org/colin1124x/common)
+[![Latest Stable Version](https://poser.pugx.org/rde/common/v/stable.svg)](https://packagist.org/packages/rde/common)
+[![Total Downloads](https://poser.pugx.org/rde/common/downloads.svg)](https://packagist.org/packages/rde/common)
+[![Latest Unstable Version](https://poser.pugx.org/rde/common/v/unstable.svg)](https://packagist.org/packages/rde/common)
+[![License](https://poser.pugx.org/rde/common/license.svg)](https://packagist.org/packages/rde/common)
 
 ### 函式庫列表
 
