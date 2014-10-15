@@ -10,11 +10,6 @@ php:
 before_script:
   - composer install
 
-after_script:
-  - phpunit --coverage-clover=coverage.clover
-  - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --access-token="04780f6f055e5144584769a5527ffaae7b616983205470c519f26e4dfd19d5a5" --format=php-clover coverage.clover
-
 branches:
   only:
     - /^v?\d+\.\d+\.\d+$/
