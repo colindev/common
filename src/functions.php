@@ -2,7 +2,7 @@
 
 namespace Rde;
 
-/** @todo 雖然已經在composer指定5.4+,但暫時還是保留5.3相容寫法 */
+// array
 
 function is_array($arg)
 {
@@ -58,22 +58,7 @@ function array_merge_callback($driver, array $base)
     return $collection;
 }
 
-function object_get($obj, $key, $default = null)
-{
-    if ( ! \is_object($obj)) {
-        throw new \InvalidArgumentException('參數1必須為物件');
-    }
-
-    if (isset($obj->{$key})) {
-        return $obj->{$key};
-    }
-
-    if ($default && is_callable($default)) {
-        return $default();
-    }
-
-    return $default;
-}
+// tool
 
 function value($val)
 {
