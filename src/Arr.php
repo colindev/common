@@ -9,11 +9,14 @@ class Arr implements ArrayAccess, Iterator
 
     protected $resource_resolved;
 
-    protected $queues = array();
+    protected $is_resolved;
+
+    protected $queues;
 
     public function __construct($resource)
     {
         $this->resource = $resource;
+        $this->init();
     }
 
     public function filter($driver)
@@ -24,6 +27,8 @@ class Arr implements ArrayAccess, Iterator
                 'filter',
             );
         };
+
+        $this->setUnresolved();
 
         return $this;
     }
@@ -40,31 +45,40 @@ class Arr implements ArrayAccess, Iterator
             );
         };
 
+        $this->setUnresolved();
+
         return $this;
     }
 
     public function init()
     {
-        $this->resource_resolved = null;
+        $this->is_resolved = true;
+        $this->resource_resolved = $this->resource;
         $this->queues = array();
     }
 
     public function each($callback)
     {
-        $this->hasResolved() ?
+        $this->isResolved() ?
             $this->eachResourceResolved($callback) :
             $this->resolve($callback);
     }
 
-    protected function hasResolved()
+    protected function setUnresolved()
     {
-        return is_array($this->resource_resolved);
+        $this->is_resolved = false;
+    }
+
+    protected function isResolved()
+    {
+        return $this->is_resolved;
     }
 
     protected function resolve($callback = null)
     {
         $this->resource_resolved = array();
         $callback = is_callable($callback) ? $callback : function(){};
+
         foreach ($this->resource as $k => $v) {
             foreach ($this->queues as $driver) {
                 $resolve = $driver($v, $k);
@@ -78,6 +92,8 @@ class Arr implements ArrayAccess, Iterator
             $this->resource_resolved[$k] = $v;
             $callback($v, $k);
         }
+
+        $this->is_resolved = true;
     }
 
     protected function eachResourceResolved($callback)
@@ -89,21 +105,21 @@ class Arr implements ArrayAccess, Iterator
 
     public function offsetExists($key)
     {
-        $this->hasResolved() or $this->resolve();
+        $this->isResolved() or $this->resolve();
 
         return isset($this->resource_resolved[$key]);
     }
 
     public function offsetGet($key)
     {
-        $this->hasResolved() or $this->resolve();
+        $this->isResolved() or $this->resolve();
 
         return $this->resource_resolved[$key];
     }
 
     public function offsetSet($key, $val)
     {
-        $this->hasResolved() or $this->resolve();
+        $this->isResolved() or $this->resolve();
 
         if (null === $key) {
             $this->resource_resolved[] = $val;
@@ -114,35 +130,35 @@ class Arr implements ArrayAccess, Iterator
 
     public function offsetUnset($key)
     {
-        $this->hasResolved() or $this->resolve();
+        $this->isResolved() or $this->resolve();
 
         unset($this->resource_resolved[$key]);
     }
 
     public function current()
     {
-        $this->hasResolved() or $this->resolve();
+        $this->isResolved() or $this->resolve();
 
         return current($this->resource_resolved);
     }
 
     public function key()
     {
-        $this->hasResolved() or $this->resolve();
+        $this->isResolved() or $this->resolve();
 
         return key($this->resource_resolved);
     }
 
     public function next()
     {
-        $this->hasResolved() or $this->resolve();
+        $this->isResolved() or $this->resolve();
 
         return next($this->resource_resolved);
     }
 
     public function rewind()
     {
-        $this->hasResolved() or $this->resolve();
+        $this->isResolved() or $this->resolve();
 
         reset($this->resource_resolved);
     }
