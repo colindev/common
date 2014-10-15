@@ -1,6 +1,4 @@
 ## 工具函式庫
-colin1124x/common 0.0.5 2014-10
-PHP >= 5.3
 
 [![Build Status](https://travis-ci.org/colin1124x/common.svg)](https://travis-ci.org/colin1124x/common)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/colin1124x/common/badges/quality-score.png)](https://scrutinizer-ci.com/g/colin1124x/common)
