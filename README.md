@@ -6,6 +6,7 @@ PHP >= 5.5
 
 [![Build Status](https://travis-ci.org/colin1124x/common.svg)](https://travis-ci.org/colin1124x/common)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/colin1124x/common/badges/quality-score.png)](https://scrutinizer-ci.com/g/colin1124x/common)
+[![Code Coverage](https://scrutinizer-ci.com/g/colin1124x/common/badges/coverage.png)](https://scrutinizer-ci.com/g/colin1124x/common/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/rde/common/v/stable.svg)](https://packagist.org/packages/rde/common)
 [![Total Downloads](https://poser.pugx.org/rde/common/downloads.svg)](https://packagist.org/packages/rde/common)
 [![Latest Unstable Version](https://poser.pugx.org/rde/common/v/unstable.svg)](https://packagist.org/packages/rde/common)
