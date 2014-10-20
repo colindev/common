@@ -11,7 +11,7 @@
          syntaxCheck="false"
         >
     <testsuites>
-        <testsuite name="Rde common Test Suite">
+        <testsuite name="Rde">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
