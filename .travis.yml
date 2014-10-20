@@ -12,7 +12,7 @@ before_script:
 
 branches:
   only:
-    - /^v?\d+\.\d+\.\d+$/
+    - /^\d+\.x-master$/
 
 notifications:
   email: false
