@@ -59,6 +59,19 @@ function array_merge_callback($driver, array $base)
 }
 
 // tool
+function call($callable, array $args = array())
+{
+    switch (count($args)) {
+        case 0: return $callable();
+        case 1: return $callable($args[0]);
+        case 2: return $callable($args[0], $args[1]);
+        case 3: return $callable($args[0], $args[1], $args[2]);
+        case 4: return $callable($args[0], $args[1], $args[2], $args[3]);
+        case 5: return $callable($args[0], $args[1], $args[2], $args[3], $args[4]);
+    }
+
+    return call_user_func_array($callable, $args);
+}
 
 function value($val)
 {
