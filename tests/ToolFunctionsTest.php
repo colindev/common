@@ -39,4 +39,33 @@ class ToolFunctionsTest extends PHPUnit_Framework_TestCase
                     '檢查6參數');
             }, array(9,7,8,'a','b','c'));
     }
+
+    public function testPipelineString()
+    {
+        // 函式字串
+        $this->assertEquals(
+            'a',
+            \Rde\pipeline(
+                'array_keys|min',
+                array('b' => 1, 'c' => 2, 'a' => 3)));
+
+        // closure 陣列
+        $this->assertEquals(
+            9,
+            \Rde\pipeline(array(
+                    function(){return 1;},
+                    function($n){return $n + 2;},
+                    function($n){return $n * 3;},
+                ), null)
+        );
+
+        $s = '';
+        $this->assertNull(\Rde\pipeline(array(
+                    function() use(&$s) {$s .= 'a';},
+                    function() use(&$s) {$s .= 'b';},
+                    function() use(&$s) {$s .= 'c';},
+                ), null, function($v){return null === $v;}));
+
+        $this->assertEquals('abc', $s);
+    }
 }

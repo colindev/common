@@ -72,6 +72,20 @@ function call($callable, array $args = array())
     return call_user_func_array($callable, $args);
 }
 
+function pipeline($commands, $arg, $accept = null)
+{
+    $accept = is_callable($accept) ? $accept : function($v){return (bool) $v;};
+    $commands = is_array($commands) ? $commands : preg_split('/\|/', $commands);
+    foreach ($commands as $command) {
+        $arg = call_user_func($command, $arg);
+        if ( ! call_user_func($accept, $arg)) {
+            break;
+        }
+    }
+
+    return $arg;
+}
+
 function value($val)
 {
     return is_callable($val) ? $val() : $val;
