@@ -9,6 +9,7 @@ class ToolFunctionsTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(1, Rde\value(1));
         $this->assertEquals(2, Rde\value(function(){return 2;}));
+        $this->assertEquals('time', Rde\value('time'), '測試不可誤觸方法名稱');
     }
 
     public function testCall()

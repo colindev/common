@@ -29,14 +29,6 @@ class ArrayFunctionsTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(3, \Rde\array_get($arr, 'b', function(){return 3;}));
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     */
-    public function testGetException()
-    {
-        \Rde\array_get(null, 'a');
-    }
-
     public function testEach()
     {
         $tester = $this;
@@ -142,5 +134,28 @@ class ArrayFunctionsTest extends PHPUnit_Framework_TestCase
             $mixed,
             '檢查遞迴混和merge'
         );
+    }
+
+    public function testFirst()
+    {
+        $source = array(
+            'a' => 9,
+            'b' => 8,
+            'c' => 7,
+            'd' => 6,
+            'e' => 9,
+        );
+
+        $this->assertEquals(8, Rde\array_first($source, function($k, $v){
+                    return $v == 8;
+                }), '測試有值');
+
+        $this->assertEquals(10, Rde\array_first($source, function($k, $v){
+                    return false;
+                }, 10), '測試預設');
+
+        $this->assertEquals(123, Rde\array_first($source, function($k, $v){
+                    return false;
+                }, function(){return 123;}), '測試預設closure');
     }
 }

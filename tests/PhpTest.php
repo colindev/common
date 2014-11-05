@@ -70,4 +70,18 @@ class PhpTest extends PHPUnit_Framework_TestCase
             $arr
         );
     }
+
+    public function testSearch()
+    {
+        $source = array(
+            'a' => 1,
+            'b' => 2,
+            'c' => '3',
+            'd' => true,
+            'e' => null
+        );
+
+        $this->assertEquals('a', array_search(true, $source), '弱型別模式');
+        $this->assertEquals('d', array_search(true, $source, true), '強型別模式');
+    }
 }
