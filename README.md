@@ -7,6 +7,7 @@
 [![Total Downloads](https://poser.pugx.org/rde/common/downloads.svg)](https://packagist.org/packages/rde/common)
 [![Latest Unstable Version](https://poser.pugx.org/rde/common/v/unstable.svg)](https://packagist.org/packages/rde/common)
 [![License](https://poser.pugx.org/rde/common/license.svg)](https://packagist.org/packages/rde/common)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/ba644cfb-3f1d-4a7b-b5eb-d9bd463c684e/mini.png)](https://insight.sensiolabs.com/projects/ba644cfb-3f1d-4a7b-b5eb-d9bd463c684e)
 
 ### 函式庫列表
 
