@@ -1,8 +1,8 @@
 ## 工具函式庫
 
 [![Build Status](https://travis-ci.org/colindev/common.svg?branch=master)](https://travis-ci.org/colindev/common)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/colin1124x/common/badges/quality-score.png)](https://scrutinizer-ci.com/g/colin1124x/common)
-[![Code Coverage](https://scrutinizer-ci.com/g/colin1124x/common/badges/coverage.png)](https://scrutinizer-ci.com/g/colin1124x/common/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/colindev/common/badges/quality-score.png)](https://scrutinizer-ci.com/g/colindev/common)
+[![Code Coverage](https://scrutinizer-ci.com/g/colindev/common/badges/coverage.png)](https://scrutinizer-ci.com/g/colindev/common/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/rde/common/v/stable.svg)](https://packagist.org/packages/rde/common)
 [![Total Downloads](https://poser.pugx.org/rde/common/downloads.svg)](https://packagist.org/packages/rde/common)
 [![Latest Unstable Version](https://poser.pugx.org/rde/common/v/unstable.svg)](https://packagist.org/packages/rde/common)
